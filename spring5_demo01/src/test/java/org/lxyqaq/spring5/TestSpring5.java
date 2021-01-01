@@ -27,4 +27,16 @@ public class TestSpring5 {
         user.add();
 
     }
+
+    @Test
+    public void testBook1() {
+
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean1.xml");
+
+        Book book = applicationContext.getBean("book", Book.class);
+
+        System.out.println(book);
+        book.testDemo();
+
+    }
 }

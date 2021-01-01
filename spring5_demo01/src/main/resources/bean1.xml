@@ -2,6 +2,17 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
     <!--  配置User对象创建-->
-    <bean id="user" class="org.lxyqaq.spring5.User"></bean>
+    <!--    <bean id="user" class="org.lxyqaq.spring5.User"></bean> -->
+
+    <bean id="book" class="org.lxyqaq.spring5.Book">
+        <!--  使用property完成属性注入
+              name: 类里面属性（字段）名称
+              value: 向属性注入的值
+        -->
+        <property name="bname" value="AA"></property>
+        <property name="bauthor" value="Jack"></property>
+    </bean>
+
 </beans>
