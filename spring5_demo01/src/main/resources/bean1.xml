@@ -4,8 +4,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!--  配置User对象创建-->
-    <!--    <bean id="user" class="org.lxyqaq.spring5.User"></bean> -->
+    <bean id="user" class="org.lxyqaq.spring5.User"></bean>
 
+    <!--  set方法注入属性  -->
     <bean id="book" class="org.lxyqaq.spring5.Book">
         <!--  使用property完成属性注入
               name: 类里面属性（字段）名称
@@ -13,6 +14,12 @@
         -->
         <property name="bname" value="AA"></property>
         <property name="bauthor" value="Jack"></property>
+    </bean>
+
+    <!--  有参数构造注入属性 -->
+    <bean id="orders" class="org.lxyqaq.spring5.Orders">
+        <constructor-arg name="oname" value="monitor"></constructor-arg>
+        <constructor-arg name="address" value="USA"></constructor-arg>
     </bean>
 
 </beans>

@@ -39,4 +39,16 @@ public class TestSpring5 {
         book.testDemo();
 
     }
+
+    @Test
+    public void testOrders1() {
+
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean1.xml");
+
+        Orders orders = applicationContext.getBean("orders", Orders.class);
+
+        System.out.println(orders);
+        orders.ordersTest();
+
+    }
 }
