@@ -11,6 +11,7 @@ public class Book {
 
     private String bname;
     private String bauthor;
+    private String baddress;
 
     public void setBname(String bname) {
         this.bname = bname;
@@ -20,8 +21,12 @@ public class Book {
         this.bauthor = bauthor;
     }
 
+    public void setBaddress(String baddress) {
+        this.baddress = baddress;
+    }
+
     public void testDemo() {
-        System.out.println("bname = " + bname + " , bauthor = " + bauthor);
+        System.out.println("bname = " + bname + " , bauthor = " + bauthor + " , baddress = " + baddress);
     }
 
 }
