@@ -18,7 +18,7 @@ public class TestSpring5 {
     public void testAdd() {
 
         //1.加载spring配置文件
-        ApplicationContext applicationContext = new FileSystemXmlApplicationContext("src/bean1.xml");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean1.xml");
 
         //2.获取配置创建的对象
         User user = applicationContext.getBean("user", User.class);
