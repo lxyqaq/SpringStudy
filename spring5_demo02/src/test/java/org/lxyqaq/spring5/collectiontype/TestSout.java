@@ -1,6 +1,7 @@
 package org.lxyqaq.spring5.collectiontype;
 
 import org.junit.Test;
+import org.lxyqaq.spring5.autowire.Emp;
 import org.lxyqaq.spring5.bean.Orders;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -59,6 +60,17 @@ public class TestSout {
 
         //手动让bean销毁
         context.close();
+
+    }
+
+    @Test
+    public void testAuto() {
+
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean5.xml");
+
+        Emp emp = applicationContext.getBean("emp", Emp.class);
+
+        System.out.println(emp);
 
     }
 
