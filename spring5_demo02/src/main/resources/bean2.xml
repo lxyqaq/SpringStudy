@@ -14,7 +14,10 @@
         <value>CC</value>
     </util:list>
 
-    <bean id="book" class="org.lxyqaq.spring5.collectiontype.Book">
+    <!--  singleton单实例
+          prototype多实例
+    -->
+    <bean id="book" class="org.lxyqaq.spring5.collectiontype.Book" scope="singleton">
         <property name="bookList" ref="bookList"></property>
     </bean>
 
