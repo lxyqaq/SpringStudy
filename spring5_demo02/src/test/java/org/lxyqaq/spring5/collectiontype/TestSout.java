@@ -24,4 +24,15 @@ public class TestSout {
 
     }
 
+    @Test
+    public void test() {
+
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean2.xml");
+
+        Book book = applicationContext.getBean("book", Book.class);
+
+        book.test();
+
+    }
+
 }
