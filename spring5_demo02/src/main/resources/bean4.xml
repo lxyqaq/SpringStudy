@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+    4、bean 的后置处理器，bean 生命周期有七步 （正常生命周期为五步，而配置后置处理器后为七步）
+         （1）通过构造器创建 bean 实例（无参数构造）
+
+         （2）为 bean 的属性设置值和对其他 bean 引用（调用 set 方法）
+
+         （3）把 bean 实例传递 bean 后置处理器的方法 postProcessBeforeInitialization
+
+         （4）调用 bean 的初始化的方法（需要进行配置初始化的方法）
+
+         （5）把 bean 实例传递 bean 后置处理器的方法 postProcessAfterInitialization
+
+         （6）bean 可以使用了（对象获取到了）
+
+         （7）当容器关闭时候，调用 bean 的销毁的方法（需要进行配置销毁的方法）
+      -->
+
+    <bean id="orders" class="org.lxyqaq.spring5.bean.Orders" init-method="initMethod" destroy-method="destoryMethod">
+        <property name="oname" value="Guitar"></property>
+    </bean>
+
+    <bean id="myBeanOrders" class="org.lxyqaq.spring5.bean.MyBeanPost"></bean>
+
+</beans>

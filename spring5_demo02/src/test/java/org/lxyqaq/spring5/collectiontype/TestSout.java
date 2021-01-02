@@ -1,6 +1,7 @@
 package org.lxyqaq.spring5.collectiontype;
 
 import org.junit.Test;
+import org.lxyqaq.spring5.bean.Orders;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -43,6 +44,21 @@ public class TestSout {
         Course course = applicationContext.getBean("myBean", Course.class);
 
         System.out.println(course);
+
+    }
+
+    @Test
+    public void testLifeBean() {
+
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("bean4.xml");
+
+        Orders orders = context.getBean("orders", Orders.class);
+
+        System.out.println("第四步 获取创建bean实例对象");
+        System.out.println(orders);
+
+        //手动让bean销毁
+        context.close();
 
     }
 
