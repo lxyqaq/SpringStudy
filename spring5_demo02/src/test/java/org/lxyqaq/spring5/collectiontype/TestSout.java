@@ -35,4 +35,15 @@ public class TestSout {
 
     }
 
+    @Test
+    public void testFactoryBean() {
+
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean3.xml");
+
+        Course course = applicationContext.getBean("myBean", Course.class);
+
+        System.out.println(course);
+
+    }
+
 }
