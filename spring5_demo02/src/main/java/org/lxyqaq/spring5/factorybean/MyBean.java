@@ -10,7 +10,7 @@ import org.springframework.beans.factory.FactoryBean;
  * @Date 2021/1/2 16:21
  * @Version 1.0
  */
-public class MyBean implements FactoryBean {
+public class MyBean implements FactoryBean<Course> {
 
     @Override
     public boolean isSingleton() {
