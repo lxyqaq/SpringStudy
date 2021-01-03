@@ -1,8 +1,10 @@
 package org.lxyqaq.spring5;
 
 import org.junit.Test;
+import org.lxyqaq.spring5.config.SpringConfig;
 import org.lxyqaq.spring5.service.UserService;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -22,6 +24,19 @@ public class TestSpring {
         UserService userService = applicationContext.getBean("userService", UserService.class);
 
         System.out.println(userService);
+        userService.add();
+
+    }
+
+    @Test
+    public void test2() {
+
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringConfig.class);
+
+        UserService userService = applicationContext.getBean("userService", UserService.class);
+
+        System.out.println(userService);
+
         userService.add();
 
     }
