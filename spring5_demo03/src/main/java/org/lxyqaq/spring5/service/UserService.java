@@ -17,8 +17,8 @@ import org.springframework.stereotype.Service;
  * 下面四个注解功能是一样的，都可以用来创建 bean 实例
  * (1)@Component
  * (2)@Service
- * (3)@Service
- * (4)@Service
+ * (3)@Controller
+ * (4)@Repository
  */
 
 @Service(value = "userService")
