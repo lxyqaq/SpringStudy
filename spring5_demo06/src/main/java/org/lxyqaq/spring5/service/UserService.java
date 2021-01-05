@@ -28,7 +28,7 @@ public class UserService {
         userDao.reduceMoney();
 
         //模拟异常
-        int a = 10 / 0;
+//        int a = 10 / 0;
 
         //第二步
         userDao.addMoney();

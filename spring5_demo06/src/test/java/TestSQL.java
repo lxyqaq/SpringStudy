@@ -1,9 +1,11 @@
 import org.junit.Test;
 import org.lxyqaq.spring5.config.TxConfig;
+import org.lxyqaq.spring5.entity.User;
 import org.lxyqaq.spring5.service.UserService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.GenericApplicationContext;
 
 /**
  * @ClassName TestSQL
@@ -34,6 +36,19 @@ public class TestSQL {
 
         userService.accountMoney();
 
+    }
+
+    @Test
+    public void testGenericApplicationContext() {
+        GenericApplicationContext context = new GenericApplicationContext();
+
+        context.refresh();
+
+        context.registerBean("user1", User.class, () -> new User());
+
+        User user = (User) context.getBean("user1");
+
+        System.out.println(user);
     }
 
 }
