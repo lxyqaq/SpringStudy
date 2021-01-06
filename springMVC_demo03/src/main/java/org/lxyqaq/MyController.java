@@ -22,7 +22,6 @@ import javax.servlet.http.HttpSession;
  *    位置： 放在类的上面
  */
 @Controller
-@RequestMapping("/user")
 public class MyController {
 
     /**
@@ -60,6 +59,26 @@ public class MyController {
         modelAndView.addObject("fun", "执行的是doFirst方法");
         modelAndView.setViewName("other");
         return modelAndView;
+
+    }
+
+    /**
+     * 请求中参数名和处理器方法的形参名不一样
+     * @RequestParam: 逐个接收请求参数中， 解决请求中参数名形参名不一样的问题
+     *      属性： 1. value 请求中的参数名称
+     *            2. required 是一个boolean，默认是true
+     *                true：表示请求中必须包含此参数。
+     *      位置： 在处理器方法的形参定义的前面
+     */
+    @RequestMapping(value = "/receiveProperty.do")
+    public ModelAndView doReceiveProperty(String name, String age) {
+
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("myName", name);
+        modelAndView.addObject("myAge", age);
+        modelAndView.setViewName("show");
+        return modelAndView;
+
     }
 
 }
