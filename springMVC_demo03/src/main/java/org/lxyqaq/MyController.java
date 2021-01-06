@@ -7,6 +7,7 @@ package org.lxyqaq;
  * @Version 1.0
  */
 
+import org.lxyqaq.entity.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -79,6 +80,21 @@ public class MyController {
         modelAndView.setViewName("show");
         return modelAndView;
 
+    }
+
+    /**
+     * 处理器方法形参是java对象， 这个对象的属性名和请求中参数名一样的
+     * 框架会创建形参的java对象， 给属性赋值。 请求中的参数是name，框架会调用setName()
+     * @return
+     */
+    @RequestMapping(value = "/receiveObject.do")
+    public ModelAndView deReceiveObject(Student student) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("myName", student.getName());
+        modelAndView.addObject("myAge", student.getAge());
+        modelAndView.addObject("myStudent", student);
+        modelAndView.setViewName("show");
+        return modelAndView;
     }
 
 }
