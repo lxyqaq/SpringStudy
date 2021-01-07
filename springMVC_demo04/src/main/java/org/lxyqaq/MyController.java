@@ -94,11 +94,11 @@ public class MyController {
      * 返回对象框架的处理流程：
      * 1. 框架会把返回Student类型，调用框架的中ArrayList<HttpMessageConverter>中每个类的canWrite()方法
      * 检查那个HttpMessageConverter接口的实现类能处理Student类型的数据--MappingJackson2HttpMessageConverter
-     * <p>
+     *
      * 2.框架会调用实现类的write（）， MappingJackson2HttpMessageConverter的write()方法
      * 把李四同学的student对象转为json， 调用Jackson的ObjectMapper实现转为json
      * contentType: application/json;charset=utf-8
-     * <p>
+     *
      * 3.框架会调用@ResponseBody把2的结果数据输出到浏览器， ajax请求处理完成
      */
     @RequestMapping(value = "/returnStudentJson.do")
@@ -116,11 +116,11 @@ public class MyController {
      * 返回对象框架的处理流程：
      * 1. 框架会把返回List<Student>类型，调用框架的中ArrayList<HttpMessageConverter>中每个类的canWrite()方法
      * 检查那个HttpMessageConverter接口的实现类能处理Student类型的数据--MappingJackson2HttpMessageConverter
-     * <p>
+     *
      * 2.框架会调用实现类的write（）， MappingJackson2HttpMessageConverter的write()方法
      * 把李四同学的student对象转为json， 调用Jackson的ObjectMapper实现转为json array
      * contentType: application/json;charset=utf-8
-     * <p>
+     *
      * 3.框架会调用@ResponseBody把2的结果数据输出到浏览器， ajax请求处理完成
      */
     @RequestMapping(value = "/returnStudentJsonArray.do")
@@ -141,6 +141,28 @@ public class MyController {
         list.add(student);
 
         return list;
+    }
+
+    /**
+     * 处理器方法返回的是String ， String表示数据的，不是视图。
+     * 区分返回值String是数据，还是视图，看有没有@ResponseBody注解
+     * 如果有@ResponseBody注解，返回String就是数据，反之就是视图
+     *
+     * 默认使用“text/plain;charset=ISO-8859-1”作为contentType,导致中文有乱码，
+     * 解决方案：给RequestMapping增加一个属性 produces, 使用这个属性指定新的contentType.
+     * 返回对象框架的处理流程：
+     * 1. 框架会把返回String类型，调用框架的中ArrayList<HttpMessageConverter>中每个类的canWrite()方法
+     * 检查那个HttpMessageConverter接口的实现类能处理String类型的数据--StringHttpMessageConverter
+     *
+     * 2.框架会调用实现类的write（）， StringHttpMessageConverter的write()方法
+     * 把字符按照指定的编码处理 text/plain;charset=ISO-8859-1
+     *
+     * 3.框架会调用@ResponseBody把2的结果数据输出到浏览器， ajax请求处理完成
+     */
+    @RequestMapping(value = "/returnStringData.do", produces = "text/plain;charset=UTF-8")
+    @ResponseBody
+    public String doStringData(String name, Integer age) {
+        return "Hello SpringMVc 返回对象，表示数据";
     }
 
 }

@@ -14,18 +14,19 @@
 			$(function () {
 				$("#btn01").click(function () {
 					$.ajax({
-						url:"returnStudentJsonArray.do",
+						url:"returnStringData.do",
 						data:{
 						    name:"楚子航",
 							age:18
 						},
 						type:"post",
-						dataType:"json",
+						dataType:"text",
 						success:function (resp) {
 							// alert(resp.name + "---------" + resp.age);
-							$.each(resp, function (i, n) {
+							/*$.each(resp, function (i, n) {
 								alert(n.name + "---------" + n.age);
-                            })
+                            })*/
+							alert("返回的数据是: " + resp);
                         }
 					})
                 })
