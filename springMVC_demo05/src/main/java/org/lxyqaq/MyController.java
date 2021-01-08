@@ -32,11 +32,13 @@ public class MyController {
 
     @RequestMapping(value = "/some")
     public ModelAndView doSome(HttpServletRequest request, String name, Integer age) {
+
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("myName", name);
         modelAndView.addObject("myAge", age);
         modelAndView.setViewName("show");
         return modelAndView;
+
     }
 
 }
